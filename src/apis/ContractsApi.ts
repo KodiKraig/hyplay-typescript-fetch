@@ -22,20 +22,6 @@ import type {
   TemplateModel,
   UpdateContractRequest,
 } from '../models/index';
-import {
-    ContractModelFromJSON,
-    ContractModelToJSON,
-    CreateContractRequestFromJSON,
-    CreateContractRequestToJSON,
-    CreateTemplateRequestFromJSON,
-    CreateTemplateRequestToJSON,
-    ReadContractArgsParameterInnerFromJSON,
-    ReadContractArgsParameterInnerToJSON,
-    TemplateModelFromJSON,
-    TemplateModelToJSON,
-    UpdateContractRequestFromJSON,
-    UpdateContractRequestToJSON,
-} from '../models/index';
 
 export interface CreateContractOperationRequest {
     createContractRequest: CreateContractRequest;
@@ -270,10 +256,10 @@ export class ContractsApi extends runtime.BaseAPI implements ContractsApiInterfa
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CreateContractRequestToJSON(requestParameters['createContractRequest']),
+            body: requestParameters['createContractRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContractModelFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -319,10 +305,10 @@ export class ContractsApi extends runtime.BaseAPI implements ContractsApiInterfa
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CreateTemplateRequestToJSON(requestParameters['createTemplateRequest']),
+            body: requestParameters['createTemplateRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => TemplateModelFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -357,7 +343,7 @@ export class ContractsApi extends runtime.BaseAPI implements ContractsApiInterfa
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContractModelFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -396,7 +382,7 @@ export class ContractsApi extends runtime.BaseAPI implements ContractsApiInterfa
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ContractModelFromJSON));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -431,7 +417,7 @@ export class ContractsApi extends runtime.BaseAPI implements ContractsApiInterfa
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => TemplateModelFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -471,7 +457,7 @@ export class ContractsApi extends runtime.BaseAPI implements ContractsApiInterfa
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TemplateModelFromJSON));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -598,10 +584,10 @@ export class ContractsApi extends runtime.BaseAPI implements ContractsApiInterfa
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: UpdateContractRequestToJSON(requestParameters['updateContractRequest']),
+            body: requestParameters['updateContractRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ContractModelFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**

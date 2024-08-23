@@ -18,12 +18,6 @@ import type {
   GetAppUsers200Response,
   GetUser200Response,
 } from '../models/index';
-import {
-    GetAppUsers200ResponseFromJSON,
-    GetAppUsers200ResponseToJSON,
-    GetUser200ResponseFromJSON,
-    GetUser200ResponseToJSON,
-} from '../models/index';
 
 export interface GetCurrentUserRequest {
     xSessionAuthorization: string;
@@ -110,7 +104,7 @@ export class UsersApi extends runtime.BaseAPI implements UsersApiInterface {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetAppUsers200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -150,7 +144,7 @@ export class UsersApi extends runtime.BaseAPI implements UsersApiInterface {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetUser200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**

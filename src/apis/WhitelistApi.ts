@@ -19,14 +19,6 @@ import type {
   GetWhitelist200Response,
   UpdateWhitelistRequest,
 } from '../models/index';
-import {
-    DeleteFromWhitelistRequestFromJSON,
-    DeleteFromWhitelistRequestToJSON,
-    GetWhitelist200ResponseFromJSON,
-    GetWhitelist200ResponseToJSON,
-    UpdateWhitelistRequestFromJSON,
-    UpdateWhitelistRequestToJSON,
-} from '../models/index';
 
 export interface DeleteFromWhitelistOperationRequest {
     xAuthorization: string;
@@ -153,10 +145,10 @@ export class WhitelistApi extends runtime.BaseAPI implements WhitelistApiInterfa
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
-            body: DeleteFromWhitelistRequestToJSON(requestParameters['deleteFromWhitelistRequest']),
+            body: requestParameters['deleteFromWhitelistRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetWhitelist200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -202,7 +194,7 @@ export class WhitelistApi extends runtime.BaseAPI implements WhitelistApiInterfa
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetWhitelist200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -255,10 +247,10 @@ export class WhitelistApi extends runtime.BaseAPI implements WhitelistApiInterfa
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: UpdateWhitelistRequestToJSON(requestParameters['updateWhitelistRequest']),
+            body: requestParameters['updateWhitelistRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetWhitelist200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**

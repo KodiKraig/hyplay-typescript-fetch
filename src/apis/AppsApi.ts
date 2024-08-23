@@ -34,44 +34,6 @@ import type {
   UpdateAppRequest,
   UpdateAppTeammateRequest,
 } from '../models/index';
-import {
-    AppModelFromJSON,
-    AppModelToJSON,
-    AppTeammateModelFromJSON,
-    AppTeammateModelToJSON,
-    CreateApp200ResponseFromJSON,
-    CreateApp200ResponseToJSON,
-    CreateAppRequestFromJSON,
-    CreateAppRequestToJSON,
-    CreateAppTeammateRequestFromJSON,
-    CreateAppTeammateRequestToJSON,
-    EndSessionRequestFromJSON,
-    EndSessionRequestToJSON,
-    GetAppState200ResponseFromJSON,
-    GetAppState200ResponseToJSON,
-    GetAppTeammates200ResponseFromJSON,
-    GetAppTeammates200ResponseToJSON,
-    GetAppUser200ResponseFromJSON,
-    GetAppUser200ResponseToJSON,
-    GetAppUsers200ResponseFromJSON,
-    GetAppUsers200ResponseToJSON,
-    GetApps200ResponseFromJSON,
-    GetApps200ResponseToJSON,
-    GetPublicApp200ResponseFromJSON,
-    GetPublicApp200ResponseToJSON,
-    GrantSessionTokenRequestFromJSON,
-    GrantSessionTokenRequestToJSON,
-    SessionModelFromJSON,
-    SessionModelToJSON,
-    SetAppState200ResponseFromJSON,
-    SetAppState200ResponseToJSON,
-    SetAppStateRequestFromJSON,
-    SetAppStateRequestToJSON,
-    UpdateAppRequestFromJSON,
-    UpdateAppRequestToJSON,
-    UpdateAppTeammateRequestFromJSON,
-    UpdateAppTeammateRequestToJSON,
-} from '../models/index';
 
 export interface CreateAppOperationRequest {
     xAuthorization: string;
@@ -451,10 +413,10 @@ export class AppsApi extends runtime.BaseAPI implements AppsApiInterface {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CreateAppRequestToJSON(requestParameters['createAppRequest']),
+            body: requestParameters['createAppRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CreateApp200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -507,10 +469,10 @@ export class AppsApi extends runtime.BaseAPI implements AppsApiInterface {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CreateAppTeammateRequestToJSON(requestParameters['createAppTeammateRequest']),
+            body: requestParameters['createAppTeammateRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AppTeammateModelFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -609,7 +571,7 @@ export class AppsApi extends runtime.BaseAPI implements AppsApiInterface {
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
-            body: EndSessionRequestToJSON(requestParameters['endSessionRequest']),
+            body: requestParameters['endSessionRequest'],
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -658,7 +620,7 @@ export class AppsApi extends runtime.BaseAPI implements AppsApiInterface {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetAppState200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -704,7 +666,7 @@ export class AppsApi extends runtime.BaseAPI implements AppsApiInterface {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetAppTeammates200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -746,7 +708,7 @@ export class AppsApi extends runtime.BaseAPI implements AppsApiInterface {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetAppUser200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -789,7 +751,7 @@ export class AppsApi extends runtime.BaseAPI implements AppsApiInterface {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetAppUsers200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -825,7 +787,7 @@ export class AppsApi extends runtime.BaseAPI implements AppsApiInterface {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetApps200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -860,7 +822,7 @@ export class AppsApi extends runtime.BaseAPI implements AppsApiInterface {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetPublicApp200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -906,10 +868,10 @@ export class AppsApi extends runtime.BaseAPI implements AppsApiInterface {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: GrantSessionTokenRequestToJSON(requestParameters['grantSessionTokenRequest']),
+            body: requestParameters['grantSessionTokenRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => SessionModelFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -959,10 +921,10 @@ export class AppsApi extends runtime.BaseAPI implements AppsApiInterface {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: SetAppStateRequestToJSON(requestParameters['setAppStateRequest']),
+            body: requestParameters['setAppStateRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => SetAppState200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -1015,10 +977,10 @@ export class AppsApi extends runtime.BaseAPI implements AppsApiInterface {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: UpdateAppRequestToJSON(requestParameters['updateAppRequest']),
+            body: requestParameters['updateAppRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AppModelFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -1078,10 +1040,10 @@ export class AppsApi extends runtime.BaseAPI implements AppsApiInterface {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: UpdateAppTeammateRequestToJSON(requestParameters['updateAppTeammateRequest']),
+            body: requestParameters['updateAppTeammateRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AppTeammateModelFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**

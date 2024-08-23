@@ -25,26 +25,6 @@ import type {
   UpdateLeaderboard200Response,
   UpdateLeaderboardRequest,
 } from '../models/index';
-import {
-    CreateLeaderboard200ResponseFromJSON,
-    CreateLeaderboard200ResponseToJSON,
-    CreateLeaderboardRequestFromJSON,
-    CreateLeaderboardRequestToJSON,
-    CreateLeaderboardScoreRequestFromJSON,
-    CreateLeaderboardScoreRequestToJSON,
-    DeleteLeaderboardScoreRequestFromJSON,
-    DeleteLeaderboardScoreRequestToJSON,
-    GetLeaderboardScore200ResponseFromJSON,
-    GetLeaderboardScore200ResponseToJSON,
-    GetLeaderboardScores200ResponseFromJSON,
-    GetLeaderboardScores200ResponseToJSON,
-    GetLeaderboards200ResponseInnerFromJSON,
-    GetLeaderboards200ResponseInnerToJSON,
-    UpdateLeaderboard200ResponseFromJSON,
-    UpdateLeaderboard200ResponseToJSON,
-    UpdateLeaderboardRequestFromJSON,
-    UpdateLeaderboardRequestToJSON,
-} from '../models/index';
 
 export interface CreateLeaderboardOperationRequest {
     xAppAuthorization: string;
@@ -323,10 +303,10 @@ export class LeaderboardsApi extends runtime.BaseAPI implements LeaderboardsApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CreateLeaderboardRequestToJSON(requestParameters['createLeaderboardRequest']),
+            body: requestParameters['createLeaderboardRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CreateLeaderboard200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -383,10 +363,10 @@ export class LeaderboardsApi extends runtime.BaseAPI implements LeaderboardsApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CreateLeaderboardScoreRequestToJSON(requestParameters['createLeaderboardScoreRequest']),
+            body: requestParameters['createLeaderboardScoreRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetLeaderboardScore200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -446,7 +426,7 @@ export class LeaderboardsApi extends runtime.BaseAPI implements LeaderboardsApiI
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
-            body: DeleteLeaderboardScoreRequestToJSON(requestParameters['deleteLeaderboardScoreRequest']),
+            body: requestParameters['deleteLeaderboardScoreRequest'],
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -490,7 +470,7 @@ export class LeaderboardsApi extends runtime.BaseAPI implements LeaderboardsApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetLeaderboards200ResponseInnerFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -593,7 +573,7 @@ export class LeaderboardsApi extends runtime.BaseAPI implements LeaderboardsApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetLeaderboardScore200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -647,7 +627,7 @@ export class LeaderboardsApi extends runtime.BaseAPI implements LeaderboardsApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetLeaderboardScores200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -682,7 +662,7 @@ export class LeaderboardsApi extends runtime.BaseAPI implements LeaderboardsApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(GetLeaderboards200ResponseInnerFromJSON));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -742,10 +722,10 @@ export class LeaderboardsApi extends runtime.BaseAPI implements LeaderboardsApiI
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: UpdateLeaderboardRequestToJSON(requestParameters['updateLeaderboardRequest']),
+            body: requestParameters['updateLeaderboardRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateLeaderboard200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**

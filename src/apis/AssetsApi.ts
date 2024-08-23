@@ -18,12 +18,6 @@ import type {
   AssetModel,
   CreateAssetRequest,
 } from '../models/index';
-import {
-    AssetModelFromJSON,
-    AssetModelToJSON,
-    CreateAssetRequestFromJSON,
-    CreateAssetRequestToJSON,
-} from '../models/index';
 
 export interface CreateAssetOperationRequest {
     xAuthorization: string;
@@ -137,10 +131,10 @@ export class AssetsApi extends runtime.BaseAPI implements AssetsApiInterface {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CreateAssetRequestToJSON(requestParameters['createAssetRequest']),
+            body: requestParameters['createAssetRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AssetModelFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -186,7 +180,7 @@ export class AssetsApi extends runtime.BaseAPI implements AssetsApiInterface {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AssetModelFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -225,7 +219,7 @@ export class AssetsApi extends runtime.BaseAPI implements AssetsApiInterface {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AssetModelFromJSON));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**

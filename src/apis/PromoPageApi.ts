@@ -19,14 +19,6 @@ import type {
   UpdatePage200Response,
   UpdatePageRequest,
 } from '../models/index';
-import {
-    GetPage200ResponseFromJSON,
-    GetPage200ResponseToJSON,
-    UpdatePage200ResponseFromJSON,
-    UpdatePage200ResponseToJSON,
-    UpdatePageRequestFromJSON,
-    UpdatePageRequestToJSON,
-} from '../models/index';
 
 export interface GetPageRequest {
     appId: string;
@@ -109,7 +101,7 @@ export class PromoPageApi extends runtime.BaseAPI implements PromoPageApiInterfa
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetPage200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -162,10 +154,10 @@ export class PromoPageApi extends runtime.BaseAPI implements PromoPageApiInterfa
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: UpdatePageRequestToJSON(requestParameters['updatePageRequest']),
+            body: requestParameters['updatePageRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => UpdatePage200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**

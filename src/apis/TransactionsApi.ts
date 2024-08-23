@@ -18,12 +18,6 @@ import type {
   CreateTransactionRequest,
   TransactionModel,
 } from '../models/index';
-import {
-    CreateTransactionRequestFromJSON,
-    CreateTransactionRequestToJSON,
-    TransactionModelFromJSON,
-    TransactionModelToJSON,
-} from '../models/index';
 
 export interface CreateTransactionOperationRequest {
     createTransactionRequest: CreateTransactionRequest;
@@ -148,10 +142,10 @@ export class TransactionsApi extends runtime.BaseAPI implements TransactionsApiI
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CreateTransactionRequestToJSON(requestParameters['createTransactionRequest']),
+            body: requestParameters['createTransactionRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => TransactionModelFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -186,7 +180,7 @@ export class TransactionsApi extends runtime.BaseAPI implements TransactionsApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => TransactionModelFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -234,7 +228,7 @@ export class TransactionsApi extends runtime.BaseAPI implements TransactionsApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(TransactionModelFromJSON));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**

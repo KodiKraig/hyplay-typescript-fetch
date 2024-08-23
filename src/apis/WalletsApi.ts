@@ -19,14 +19,6 @@ import type {
   TransactionModel,
   UpdateWalletRequest,
 } from '../models/index';
-import {
-    GetWallet200ResponseFromJSON,
-    GetWallet200ResponseToJSON,
-    TransactionModelFromJSON,
-    TransactionModelToJSON,
-    UpdateWalletRequestFromJSON,
-    UpdateWalletRequestToJSON,
-} from '../models/index';
 
 export interface GetWalletRequest {
     walletIdOrAddress: string;
@@ -131,7 +123,7 @@ export class WalletsApi extends runtime.BaseAPI implements WalletsApiInterface {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetWallet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
@@ -227,10 +219,10 @@ export class WalletsApi extends runtime.BaseAPI implements WalletsApiInterface {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: UpdateWalletRequestToJSON(requestParameters['updateWalletRequest']),
+            body: requestParameters['updateWalletRequest'],
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => TransactionModelFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response);
     }
 
     /**
